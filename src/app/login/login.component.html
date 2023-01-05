@@ -1,0 +1,14 @@
+<main>
+    <section id="section-login">
+      <form>
+        <div>
+          <label for="email">Email</label>
+          <input name="email"  required  type="email" [(ngModel)]="usuario">
+          <br>
+          <label for="password">Password</label>
+          <input name="password"  type="password" [(ngModel)]="senha">
+        </div>
+        <button (click)="fazerLogin()">Login</button>
+      </form>
+    </section>
+</main>
