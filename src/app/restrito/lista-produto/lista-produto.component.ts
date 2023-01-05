@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/login.service';
 import { Produto } from 'src/app/models/Produtos.model';
 import { ProdutoService } from 'src/app/produto.service';
 
@@ -12,11 +14,22 @@ import { ProdutoService } from 'src/app/produto.service';
 export class ListaProdutoComponent {
   public produtos: Produto[] = [ ];
   public produto: Produto = new Produto(0,"","","",0);
+  counter!: number;
+  constructor(private _produtoService: ProdutoService,
+    private router:Router,
+    private _loginService: LoginService){}
 
-  constructor(private _produtoService: ProdutoService){}
-  
+
+
   ngOnInit():void{
     this.listarProdutos();
+    this.counter = Number(localStorage.getItem('counter'))
+    this.counter++;
+
+    if(localStorage.getItem('counter') !== '1') {
+      this._loginService.setMostraMenu(false)
+    }
+
   }
 
   listarProdutos():void{
@@ -41,11 +54,14 @@ export class ListaProdutoComponent {
 
   excluir(id: number){
     this._produtoService.removerProduto(id).subscribe(
-      vaga => {this.produto = new Produto(0,"","","",0)},
+      vaga => {
+        this.listarProdutos();
+      },
       err => {console.log("erro ao Excluir")}
     );
 
-    window.location.href = "/restrito/lista";
+    // window.location.href = "/restrito/lista";
+    this.router.navigate(["/restrito/lista"]);
 
   }
 }

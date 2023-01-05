@@ -12,24 +12,10 @@
   "produtos": [
     {
       "id": 1,
-      "produto": "Jogo 1",
-      "descricao": "Jogo do Ano",
-      "foto": "jogo1.PNG",
-      "preco": 200
-    },
-    {
-      "id": 2,
-      "produto": "Jogo 2",
-      "descricao": "Jogo Clássico",
-      "foto": "jogo2.PNG",
-      "preco": 400
-    },
-    {
-      "id": 3,
-      "produto": "Jogo 3",
-      "descricao": "Jogo de aventura",
-      "foto": "jogo3.PNG",
-      "preco": 300
+      "produto": "dasds",
+      "descricao": "dasdq",
+      "foto": "11.ng",
+      "preco": 2
     }
   ]
 }

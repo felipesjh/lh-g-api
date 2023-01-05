@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +8,23 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 export class LoginService {
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
+  mostraMenu = new Subject<boolean>()
 
   constructor() { }
 
   login(usuario:string, senha:string){
     if(usuario=="aluno" && senha=="1234"){
       localStorage.setItem('token','qwer1234');
-      this.mostrarMenuEmitter.emit(false);
     }else{
-      this.mostrarMenuEmitter.emit(true);
     }
+  }
+
+  setMostraMenu(value: boolean) {
+    this.mostraMenu.next(value)
+  }
+
+  getMostraMenu() {
+    return this.mostraMenu.asObservable();
   }
 
 

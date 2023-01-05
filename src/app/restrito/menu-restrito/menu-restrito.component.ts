@@ -9,9 +9,11 @@ import { LoginService } from 'src/app/login.service';
 })
 export class MenuRestritoComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router,
+    private _loginService: LoginService){}
   logout(){
     localStorage.clear();
+    this._loginService.setMostraMenu(true)
     this.router.navigate(['/login']);
   }
 }

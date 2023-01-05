@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit{
 
   usuario!: string;
   senha!:string;
-  
+
   constructor(private _loginService:LoginService,private router: Router) { }
 
   ngOnInit():void{
@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit{
 
     this._loginService.login(this.usuario,this.senha);
     this.router.navigate(['/restrito/lista']);
+
+    this._loginService.setMostraMenu(false)
 
   }
 }
