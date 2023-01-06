@@ -12,10 +12,10 @@
   "produtos": [
     {
       "id": 1,
-      "produto": "dasds",
-      "descricao": "dasdq",
-      "foto": "11.ng",
-      "preco": 2
+      "produto": "jogo 1",
+      "descricao": "fdsf",
+      "foto": "jogo1.PNG",
+      "preco": 5000
     }
   ]
 }
